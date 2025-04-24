@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Tasks</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body class="home-page">
+    <a href="/logout" class="btn logout">Logout</a>
+    <div class="container">
+        <header>
+            <h1>Hello, <%= user.email %>!</h1>
+        
+        </header>
+
+        <a href="/add-product">Add Product</a>
+<h2>All Your Products</h2>
+<ul>
+<% products.forEach(product => { %>
+    <li>
+        <h3><%= product.title %> - ₹<%= product.price %></h3>
+        <p><%= product.description %></p>
+        <img src="<%= product.imageUrl %>" width="100">
+    </li>
+<% }) %>
+</ul>
+
+    </div>
+</body>
+</html>
