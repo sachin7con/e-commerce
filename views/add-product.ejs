@@ -3,6 +3,15 @@
 <head><title>Add Products</title></head>
 
 <body>
+    <nav style="background: #333; padding: 10px; text-align: center;">
+        <a href="/home" style="color: white; margin: 0 10px;">Home</a>
+        <a href="/cart" style="color: white; margin: 0 10px;">Cart</a>
+        <a href="/orders" style="color: white; margin: 0 10px;">Orders</a>
+        <a href="/checkout" style="color: white; margin: 0 10px;">Checkout</a>
+        <a href="/logout" style="color: white; margin: 0 10px;">Logout</a>
+    </nav>
+    
+    
     <h1>Add Product</h1>
 <% if (message) { %><p><%= message %></p><% } %>
 <form action="/add-product" method="POST">

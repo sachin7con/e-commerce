@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Checkout</title>
+  <link rel="stylesheet" href="/css/style.css"> <!-- if you have a style.css -->
+  <style>
+    /* Basic styles */
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .checkout-container { max-width: 800px; margin: auto; }
+    h1 { text-align: center; margin-bottom: 20px; }
+    table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+    table, th, td { border: 1px solid #ccc; }
+    th, td { padding: 10px; text-align: center; }
+    .total { text-align: right; font-size: 1.2rem; margin-top: 20px; }
+    .btn { display: inline-block; background: #28a745; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
+    .btn:hover { background: #218838; }
+  </style>
+</head>
+<body>
+    <nav style="background: #333; padding: 10px; text-align: center;">
+        <a href="/home" style="color: white; margin: 0 10px;">Home</a>
+        <a href="/cart" style="color: white; margin: 0 10px;">Cart</a>
+        <a href="/orders" style="color: white; margin: 0 10px;">Orders</a>
+        <a href="/checkout" style="color: white; margin: 0 10px;">Checkout</a>
+        <a href="/logout" style="color: white; margin: 0 10px;">Logout</a>
+    </nav>
+    
+    
+
+<div class="checkout-container">
+  <h1>Checkout</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Product</th>
+        <th>Price (₹)</th>
+        <th>Quantity</th>
+        <th>Subtotal (₹)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cartItems.forEach(item => { %>
+        <tr>
+          <td><%= item.title %></td>
+          <td><%= item.price %></td>
+          <td><%= item.quantity %></td>
+          <td><%= item.price * item.quantity %></td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+
+  <div class="total">
+    <strong>Total Amount: ₹<%= totalAmount %></strong>
+  </div>
+
+  <div style="text-align: center; margin-top: 30px;">
+    <form action="/place-order" method="POST">
+      <button type="submit" class="btn">Place Order</button>
+    </form>
+  </div>
+</div>
+
+</body>
+</html>

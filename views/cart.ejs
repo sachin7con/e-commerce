@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head><title>Cart</title></head>
+
+    <body>
+        <nav style="background: #333; padding: 10px; text-align: center;">
+            <a href="/home" style="color: white; margin: 0 10px;">Home</a>
+            <a href="/cart" style="color: white; margin: 0 10px;">Cart</a>
+            <a href="/orders" style="color: white; margin: 0 10px;">Orders</a>
+            <a href="/checkout" style="color: white; margin: 0 10px;">Checkout</a>
+            <a href="/logout" style="color: white; margin: 0 10px;">Logout</a>
+        </nav>
+        
+        
+       <h1>Your Cart</h1> 1
+        <% if(cart.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% cart.forEach(item => { %>
+                    <tr>
+                        <td><%= item.title %></td>
+                        <td><%= item.price %></td>
+                        <td><%= item.quantity %></td>
+                        <td><%= item.total %></td>
+
+                    </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+
+            <h3>Total Amount: <%= totalAmount %> </h3>
+            <form action="/checkout" method="GET">
+                <button type="submit">Proceed to Checkout</button>
+            </form>
+            <% } else { %>
+                <p>Your cart is empty!</p>
+            <% } %>
+    </body>
+</html>

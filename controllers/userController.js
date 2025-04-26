@@ -58,7 +58,7 @@ function isAuthenticated(req, res, next) {
     if(req.session.user){
        return next();
     }
-    return redirect('/login');
+    return res.redirect('/login');
 }
 
 module.exports = { signup, signupPage, login, loginPage, isAuthenticated }
